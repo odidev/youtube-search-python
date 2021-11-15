@@ -48,6 +48,8 @@ jobs:
               python -m pip install --upgrade pip && \
               apt-get install -y git && \
               python -m pip install httpx git+https://github.com/pytube/pytube && \
+              echo "Syns" && \
               python syncExample.py && \
+              echo "async" && \
               python asyncExample.py && \
               deactivate'     
