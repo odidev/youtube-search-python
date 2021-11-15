@@ -23,7 +23,7 @@ jobs:
       run: python asyncExample.py
       
   armv64_job:
-      name: Python ${{ matrix.python-version }} / ${{ matrix.tox-environment }}
+      name: Build and Test for arm64
       runs-on: ubuntu-20.04
       strategy:
         fail-fast: false
@@ -46,6 +46,7 @@ jobs:
               python3.8 -m venv .env && \
               source .env/bin/activate && \
               python -m pip install --upgrade pip && \
+              apt-get install -y git && \
               python -m pip install httpx git+https://github.com/pytube/pytube && \
               python syncExample.py && \
               python asyncExample.py && \
